@@ -3,15 +3,14 @@ from flask import (Flask, redirect,
 
 app = Flask(__name__)
 
-@app.route('/hello/<name>')
-def hello_world(name):
-    return render_template('hello_guest.html',name=name)
+@app.route('/hello/<int:id>')
+def hello_world(id):
+    print(type(id))
     return "Hello %f" % id
-
 
 @app.route('/hello/<name>')
 def hello_guest(name):
-    return render_template('hello_guest.html', name=name, categories=["Fruits","Legumes"])
+    return "Hello %s" % name
 
 @app.route('/user/<name>')
 def hello_user(name):
